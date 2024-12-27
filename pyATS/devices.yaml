@@ -1,0 +1,45 @@
+devices:
+  SW01:
+    os: ios
+    platform: cat3k
+    credentials:
+      default:
+        username: admin
+        password: cisco
+      enable:
+        password: cisco
+    connections:
+      cli:
+        protocol: telnet 
+        ip: 192.168.0.1
+        arguments:
+          init_config_commands: []
+  RT01:
+    os: ios
+    credentials:
+      default:
+        username: admin
+        password: hoge
+      enable:
+        password: hoge
+    connections:
+      cli:
+        protocol: ssh
+        ip: 192.168.0.2
+        arguments:
+          init_config_commands: []
+  WLC01:
+    os: iosxe
+    platform: c9800
+    credentials:
+      default:
+        username: admin
+        password: moge
+      enable:
+        password: moge
+    connections:
+      cli:
+        protocol: ssh
+        ip: 192.168.0.3
+        arguments:
+          init_config_commands: []

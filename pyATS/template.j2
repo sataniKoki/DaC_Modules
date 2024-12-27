@@ -1,0 +1,24 @@
+devices:
+{% for hostname, datas in hostsdatas.items() %}
+  {{ hostname }}:
+    os: {{ datas["os"] }}
+{% if datas["platform"] != None %}
+    platform: {{ datas["platform"] }}
+{% endif %}
+    credentials:
+      default:
+        username: admin
+        password: {{ datas["password"] }}
+      enable:
+        password: {{ datas["password"] }}
+    connections:
+      cli:
+{% if datas["class"] in ["RT", "WLC"] %}
+        protocol: ssh
+{% else %}
+        protocol: telnet 
+{% endif %}
+        ip: {{ datas["ip"] }}
+        arguments:
+          init_config_commands: []
+{% endfor %}
